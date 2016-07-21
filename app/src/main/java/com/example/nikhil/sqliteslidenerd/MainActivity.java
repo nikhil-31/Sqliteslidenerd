@@ -12,7 +12,10 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         nikHelper = new NikHelper(this);
-
         SQLiteDatabase sqLiteDatabase= nikHelper.getWritableDatabase();
+
+
+
+
     }
 }
