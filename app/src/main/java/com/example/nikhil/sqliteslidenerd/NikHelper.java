@@ -16,8 +16,8 @@ public class NikHelper extends SQLiteOpenHelper {
     private static final int DATABASE_VERSION = 6;
     private static final String UID ="_id";
     private static final String NAME = "NAME";
-    private static final String ADDRESS = "address";
-    private static final String CREATE_TABLE= "CREATE TABLE "+TABLE_NAME+"( "+UID+" INTEGER PRIMARY KEY AUTOINCREMENT,"+NAME+ " varchar(255),"+ADDRESS+" varchar(255)); ";
+    private static final String PASSWORD = "address";
+    private static final String CREATE_TABLE= "CREATE TABLE "+TABLE_NAME+"( "+UID+" INTEGER PRIMARY KEY AUTOINCREMENT,"+NAME+ " varchar(255),"+PASSWORD+" varchar(255)); ";
     private static final String DROP_TABLE="DROP TABLE IF EXISTS "+TABLE_NAME;
     private Context context;
 
