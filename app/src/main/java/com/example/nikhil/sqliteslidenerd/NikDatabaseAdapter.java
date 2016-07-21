@@ -17,7 +17,7 @@ import android.widget.Toast;
 
 
 
-
+//Changed Git Global email id so now i can commit as nikhil-31
 public class NikDatabaseAdapter{
 
     NikHelper helper;

@@ -8,6 +8,8 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
 
+
+//Changed Git Global email id so now i can commit as nikhil-31. Learnt something new.
 public class MainActivity extends AppCompatActivity {
     NikDatabaseAdapter nikDatabaseAdapter;
     EditText username;
