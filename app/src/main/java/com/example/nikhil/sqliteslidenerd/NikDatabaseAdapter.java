@@ -21,12 +21,15 @@ import android.widget.Toast;
 public class NikDatabaseAdapter{
 
     NikHelper helper;
-    Context c;
+
     public NikDatabaseAdapter(Context context){
-        this.c =context;
+
         helper= new NikHelper(context);
 
     }
+    /* Class to insert data into the database, It is required as we should not expose the database
+    * name,table name,coloumn name as someone could destroy the database with access to the activity*/
+
     public long insertData(String name,String password){
         SQLiteDatabase db= helper.getWritableDatabase();
         ContentValues contentValues = new ContentValues();
@@ -38,7 +41,8 @@ public class NikDatabaseAdapter{
     }
 
 
-
+    // It is the helper class that extends sqliteopenhelper superclass.
+    //It is static as it in java we give stuff the least preference.
     static class NikHelper extends SQLiteOpenHelper{
         private static final String DATABASE_NAME = "nikdatabase";
         private static final String TABLE_NAME = "niktable";
