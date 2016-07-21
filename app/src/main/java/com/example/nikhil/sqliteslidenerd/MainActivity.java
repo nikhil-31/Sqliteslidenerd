@@ -1,13 +1,15 @@
 package com.example.nikhil.sqliteslidenerd;
 
+import android.content.ContentValues;
 import android.database.sqlite.SQLiteDatabase;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
-    NikHelper nikHelper;
+    NikDatabaseAdapter nikDatabaseAdapter;
     EditText username;
     EditText password;
     @Override
@@ -20,7 +22,7 @@ public class MainActivity extends AppCompatActivity {
 
 
         //My implementation of the helper
-        nikHelper = new NikHelper(this);
+        nikDatabaseAdapter = new NikDatabaseAdapter(this);
 
 
 
@@ -31,8 +33,16 @@ public class MainActivity extends AppCompatActivity {
         String user = username.getText().toString();
         String pass = password.getText().toString();
 
-        //SQLiteDatabase object that represents the actual database.
-        SQLiteDatabase sqLiteDatabase= nikHelper.getWritableDatabase();
+        long id =nikDatabaseAdapter.insertData(user,pass);
+        if(id<0){
+            Toast.makeText(this,"unsuccessful",Toast.LENGTH_LONG).show();
+        }
+        else{
+            Toast.makeText(this,"Successfully added Username and Password",Toast.LENGTH_LONG).show();
+        }
+
+
+
 
     }
 }
