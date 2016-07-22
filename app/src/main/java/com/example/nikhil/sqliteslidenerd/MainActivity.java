@@ -55,4 +55,10 @@ public class MainActivity extends AppCompatActivity {
         String s2 = nikDatabaseAdapter.getData(s1);
         Toast.makeText(this,s2,Toast.LENGTH_LONG).show();
     }
+    public void update(View view){
+        nikDatabaseAdapter.updateName("test","nikz");
+    }
+    public void delete(View v){
+
+    }
 }

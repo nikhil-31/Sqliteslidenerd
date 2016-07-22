@@ -78,8 +78,17 @@ public class NikDatabaseAdapter{
 
         }
         return stringBuffer.toString();
+    }
+    public void updateName(String oldName ,String newName){
+        //UPDATE NIKTABLE SET NAME = 'NIK' WHERE NAME =? (name in whereargs);
 
-
+        SQLiteDatabase db = helper.getWritableDatabase();
+        ContentValues contentValues =new ContentValues();
+        contentValues.put(NikHelper.NAME, newName);
+        String whereargs[] = {oldName};
+        db.update(NikHelper.TABLE_NAME,contentValues,NikHelper.NAME+" =? ",whereargs);
+    }
+    public void deleteRow(){
 
     }
 

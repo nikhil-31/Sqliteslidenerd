@@ -88,9 +88,29 @@
         android:layout_height="wrap_content"
         android:text=" Show details"
         android:id="@+id/button_show_details"
+        android:onClick="getDetails"
         android:layout_below="@+id/editText3"
         android:layout_alignRight="@+id/button_show"
-        android:layout_alignEnd="@+id/button_show"
-        android:layout_marginTop="39dp"
-        android:onClick="getDetails"/>
+        android:layout_alignEnd="@+id/button_show" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Update"
+        android:id="@+id/button_update"
+        android:layout_below="@+id/button_show_details"
+        android:layout_alignLeft="@+id/editText3"
+        android:layout_alignStart="@+id/editText3"
+        android:layout_marginTop="32dp"
+        android:onClick="update"/>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Delete"
+        android:id="@+id/button_delete"
+        android:layout_alignBottom="@+id/button_update"
+        android:layout_alignLeft="@+id/button_show"
+        android:layout_alignStart="@+id/button_show"
+        android:onClick="delete"/>
 </RelativeLayout>
