@@ -59,6 +59,7 @@ public class MainActivity extends AppCompatActivity {
         nikDatabaseAdapter.updateName("test","nikz");
     }
     public void delete(View v){
+        int count = nikDatabaseAdapter.deleteRow();
 
     }
 }

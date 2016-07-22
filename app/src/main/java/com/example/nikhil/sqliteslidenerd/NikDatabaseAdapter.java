@@ -88,7 +88,12 @@ public class NikDatabaseAdapter{
         String whereargs[] = {oldName};
         db.update(NikHelper.TABLE_NAME,contentValues,NikHelper.NAME+" =? ",whereargs);
     }
-    public void deleteRow(){
+    public int deleteRow(){
+        //Delete * FROM NIKTABLE WHERE NAME='NIK'
+        SQLiteDatabase db = helper.getWritableDatabase();
+        String whereArgs[]={"nikz"};
+        int cnt = db.delete(NikHelper.TABLE_NAME,NikHelper.NAME+" =?",whereArgs);
+        return cnt;
 
     }
 
