@@ -14,6 +14,7 @@ public class MainActivity extends AppCompatActivity {
     NikDatabaseAdapter nikDatabaseAdapter;
     EditText username;
     EditText password;
+    EditText details;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -21,7 +22,7 @@ public class MainActivity extends AppCompatActivity {
 
         username= (EditText) findViewById(R.id.editText);
         password = (EditText) findViewById(R.id.editText2);
-
+        details = (EditText) findViewById(R.id.editText3);
 
         //My implementation of the helper
         nikDatabaseAdapter = new NikDatabaseAdapter(this);
@@ -42,9 +43,16 @@ public class MainActivity extends AppCompatActivity {
         else{
             Toast.makeText(this,"Successfully added Username and Password",Toast.LENGTH_LONG).show();
         }
+    }
 
 
-
-
+    public void viewDetails(View view){
+        String data = nikDatabaseAdapter.getAllData();
+        Toast.makeText(this,data,Toast.LENGTH_LONG).show();
+    }
+    public void getDetails(View v){
+        String s1 = details.getText().toString();
+        String s2 = nikDatabaseAdapter.getData(s1);
+        Toast.makeText(this,s2,Toast.LENGTH_LONG).show();
     }
 }

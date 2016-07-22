@@ -56,8 +56,41 @@
         android:layout_height="wrap_content"
         android:text="Add User"
         android:id="@+id/button_add_user"
-        android:layout_centerVertical="true"
-        android:layout_toRightOf="@+id/textView_username"
-        android:layout_toEndOf="@+id/textView_username"
-        android:onClick="addUser"/>
+        android:onClick="addUser"
+        android:layout_below="@+id/editText2"
+        android:layout_alignLeft="@+id/button_show"
+        android:layout_alignStart="@+id/button_show"
+        android:layout_alignRight="@+id/button_show"
+        android:layout_alignEnd="@+id/button_show" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Show Details"
+        android:id="@+id/button_show"
+        android:onClick="viewDetails"
+        android:layout_below="@+id/button_add_user"
+        android:layout_centerHorizontal="true" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/editText3"
+        android:layout_below="@+id/button_show"
+        android:layout_alignLeft="@+id/textView_password"
+        android:layout_alignStart="@+id/textView_password"
+        android:layout_alignRight="@+id/editText2"
+        android:layout_alignEnd="@+id/editText2"
+        />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text=" Show details"
+        android:id="@+id/button_show_details"
+        android:layout_below="@+id/editText3"
+        android:layout_alignRight="@+id/button_show"
+        android:layout_alignEnd="@+id/button_show"
+        android:layout_marginTop="39dp"
+        android:onClick="getDetails"/>
 </RelativeLayout>

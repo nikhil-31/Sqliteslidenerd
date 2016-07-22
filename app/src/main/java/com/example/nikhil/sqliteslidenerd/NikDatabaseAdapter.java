@@ -2,6 +2,7 @@ package com.example.nikhil.sqliteslidenerd;
 
 import android.content.ContentValues;
 import android.content.Context;
+import android.database.Cursor;
 import android.database.SQLException;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
@@ -37,8 +38,52 @@ public class NikDatabaseAdapter{
         contentValues.put(NikHelper.PASSWORD,password);
 
         long id= db.insert(NikHelper.TABLE_NAME, null, contentValues);
+        db.close();
         return id;
     }
+
+    public String getAllData(){
+        SQLiteDatabase db = helper.getWritableDatabase();
+
+        String[] columns = {NikHelper.UID,NikHelper.NAME,NikHelper.PASSWORD};
+        Cursor cursor = db.query(NikHelper.TABLE_NAME, columns, null, null, null, null, null);
+        StringBuffer stringBuffer = new StringBuffer();
+        while (cursor.moveToNext()){
+
+
+            int cid = cursor.getInt(0);
+            String name = cursor.getString(1);
+            String password = cursor.getString(2);
+            stringBuffer.append(cid+" "+name+" "+password+"\n");
+
+        }
+        return stringBuffer.toString();
+    }
+
+    public String getData(String name){
+        SQLiteDatabase db = helper.getWritableDatabase();
+        //select name,password from niktable where name='nikhil';
+        String[] columns = {NikHelper.NAME,NikHelper.PASSWORD};
+        //in the 3 spot the selection we writ the last part of the sql query (name='name')
+        Cursor cursor = db.query(NikHelper.TABLE_NAME, columns, NikHelper.NAME+" = '"+name+"'", null, null, null, null);
+        StringBuffer stringBuffer = new StringBuffer();
+        while (cursor.moveToNext()){
+
+
+            int index1 = cursor.getColumnIndex(NikHelper.NAME);
+            int index2 = cursor.getColumnIndex(NikHelper.PASSWORD);
+            String person = cursor.getString(index1);
+            String password = cursor.getString(index2);
+            stringBuffer.append(person+" "+password+"\n");
+
+        }
+        return stringBuffer.toString();
+
+
+
+    }
+
+
 
 
     // It is the helper class that extends sqliteopenhelper superclass.
