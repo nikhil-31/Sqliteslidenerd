@@ -32,6 +32,7 @@ public class MainActivity extends AppCompatActivity {
 
 
     }
+    //To add a new user.
     public void addUser(View view){
         String user = username.getText().toString();
         String pass = password.getText().toString();
@@ -45,21 +46,26 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
-
+    //Method to get all the data in the database
     public void viewDetails(View view){
         String data = nikDatabaseAdapter.getAllData();
         Toast.makeText(this,data,Toast.LENGTH_LONG).show();
     }
+    //Method to get the password given a valid username
     public void getDetails(View v){
         String s1 = details.getText().toString();
         String s2 = nikDatabaseAdapter.getData(s1);
         Toast.makeText(this,s2,Toast.LENGTH_LONG).show();
     }
+    //Method to update the data in the database
     public void update(View view){
         nikDatabaseAdapter.updateName("test","nikz");
     }
+
+    //Method to delete the data in the database
     public void delete(View v){
         int count = nikDatabaseAdapter.deleteRow();
+
 
     }
 }

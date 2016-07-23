@@ -41,7 +41,7 @@ public class NikDatabaseAdapter{
         db.close();
         return id;
     }
-
+    //Method to get all the data from a database.
     public String getAllData(){
         SQLiteDatabase db = helper.getWritableDatabase();
 
@@ -59,7 +59,7 @@ public class NikDatabaseAdapter{
         }
         return stringBuffer.toString();
     }
-
+    //Method to get the password given the username
     public String getData(String name){
         SQLiteDatabase db = helper.getWritableDatabase();
         //select name,password from niktable where name='nikhil';
@@ -79,6 +79,7 @@ public class NikDatabaseAdapter{
         }
         return stringBuffer.toString();
     }
+    //Method to update the username in place of a given older username
     public void updateName(String oldName ,String newName){
         //UPDATE NIKTABLE SET NAME = 'NIK' WHERE NAME =? (name in whereargs);
 
@@ -88,6 +89,7 @@ public class NikDatabaseAdapter{
         String whereargs[] = {oldName};
         db.update(NikHelper.TABLE_NAME,contentValues,NikHelper.NAME+" =? ",whereargs);
     }
+    //Method to delete the data from a particular row
     public int deleteRow(){
         //Delete * FROM NIKTABLE WHERE NAME='NIK'
         SQLiteDatabase db = helper.getWritableDatabase();
@@ -118,7 +120,8 @@ public class NikDatabaseAdapter{
             this.context=context;
             Toast.makeText(context,"constructor called",Toast.LENGTH_LONG).show();
         }
-
+        // Will be called when a database object is created and it is called with getWritableDatabase method
+        // It will be created if it dosent exist
         @Override
         public void onCreate(SQLiteDatabase db) {
 
@@ -132,7 +135,7 @@ public class NikDatabaseAdapter{
             }
 
         }
-
+        //Will only be called if there is a change in the database and its version number, passed through the constructor
         @Override
         public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
 
